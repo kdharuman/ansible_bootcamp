@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+  - name: Check connectivity to windows machine
+    win_ping:
+    when: ansible_os_family == "Windows"
+  - name: Check connectivity to others machine
+    ping:
+    when: ansible_os_family != "Windows"
